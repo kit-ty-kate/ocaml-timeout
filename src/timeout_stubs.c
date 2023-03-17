@@ -4,6 +4,7 @@
 
 #define CAML_INTERNALS
 #include <caml/fail.h>
+#include <caml/alloc.h>
 #include <caml/memory.h>
 #include <caml/instrtrace.h>
 
@@ -53,4 +54,13 @@ CAMLprim value ocaml_timeout_watch(value polling_rate, value instruction_limit) 
   pthread_create(&thread, NULL, loop, arg);
 
   CAMLreturn(Val_unit);
+}
+
+CAMLprim value ocaml_timeout_get_current_instruction_count(value unit) {
+  CAMLparam1(unit);
+  CAMLlocal1(ret);
+
+  ret = caml_copy_nativeint(caml_icount);
+
+  CAMLreturn(ret);
 }
