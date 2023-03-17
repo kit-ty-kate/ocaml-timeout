@@ -1,0 +1,7 @@
+(executable
+ (name simple)
+ (modes byte_complete)
+ (flags :standard -runtime-variant d)
+ (libraries timeout unix))
+
+(cram (deps simple.bc.exe))

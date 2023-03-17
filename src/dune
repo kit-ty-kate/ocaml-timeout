@@ -1,0 +1,6 @@
+(library
+ (public_name timeout)
+ (modes byte)
+ (foreign_stubs
+  (language c)
+  (names timeout_stubs)))
